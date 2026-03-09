@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Congratulations on Your Business</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="dot-pattern"></div>
+  <div id="confetti"></div>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">A New Chapter Begins</span>
+      </div>
+
+      <div class="headline-wrap">
+        <span class="headline-serif">Congratulations</span>
+        <span class="headline-italic">on Your Business!</span>
+      </div>
+
+      <div class="accent-line"></div>
+
+      <p class="hero-sub">
+        We're so excited to be part of your journey. Everything you need is right here — curated just for you.
+      </p>
+
+      <div class="tags">
+        <span class="tag">2 Minute Miracle Gel</span>
+        <span class="tag">Your Vision</span>
+        <span class="tag">Your Success</span>
+      </div>
+    </div>
+
+    <!-- Sheet -->
+    <div class="sheet">
+      <div class="handle"></div>
+
+      <p class="section-label">Your Resource Hub</p>
+
+      <a class="resource-card" href="https://drive.google.com/drive/folders/1XW0RMDpkbi-70wDfh7ibO3SEKXcPlLMt?usp=sharing" target="_blank" rel="noopener">
+        <div class="card-icon-wrap">📂</div>
+        <div class="card-body">
+          <div class="card-title">Business Guides</div>
+          <div class="card-desc">Marketing, operations, finance & onboarding — all in one place.</div>
+        </div>
+        <div class="card-arrow">›</div>
+      </a>
+
+      <div class="footer">
+        <p class="footer-text">Please don't hesitate to contact us —<br/>we're always here to help. 💛</p>
+        <a class="contact-btn" href="https://mail.google.com/mail/?view=cm&to=Support@2mmgelph.com" target="_blank" rel="noopener">
+          <span class="btn-dot"></span>
+          Get in Touch
+        </a>
+        <p class="brand-mark">2 Minute Miracle Gel PH. All Rights Reserved. ©2026</p>
+        <p class="brand-mark">Confidential — for authorized partners only.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const wrap = document.getElementById('confetti');
+    const cols = ['#0EC3E1','#FFF8BD','#0aa8c2','#f0e878','#b3f0f8','#0d2b30'];
+
+    function boom() {
+      for (let i = 0; i < 70; i++) {
+        const el = document.createElement('div');
+        el.className = 'cp';
+        const sz = 5 + Math.random() * 7;
+        const col = cols[Math.floor(Math.random() * cols.length)];
+        const circle = Math.random() > 0.5;
+        el.style.cssText = `
+          left:${Math.random()*100}vw;
+          width:${sz}px; height:${sz}px;
+          background:${col};
+          border-radius:${circle ? '50%' : '2px'};
+          animation-duration:${1.8 + Math.random()*1.5}s;
+          animation-delay:${Math.random()*0.9}s;
+        `;
+        wrap.appendChild(el);
+      }
+      setTimeout(() => wrap.innerHTML = '', 4500);
+    }
+
+    window.addEventListener('load', () => setTimeout(boom, 300));
+
+    document.querySelectorAll('.resource-card').forEach(card => {
+      ['touchstart','mousedown'].forEach(evt => {
+        card.addEventListener(evt, function(e) {
+          const r = document.createElement('span');
+          r.className = 'ripple';
+          const rect = this.getBoundingClientRect();
+          const pt = e.touches ? e.touches[0] : e;
+          const sz = Math.max(rect.width, rect.height) * 1.8;
+          r.style.cssText = `
+            width:${sz}px; height:${sz}px;
+            left:${pt.clientX - rect.left - sz/2}px;
+            top:${pt.clientY - rect.top - sz/2}px;
+          `;
+          this.appendChild(r);
+          setTimeout(() => r.remove(), 560);
+        }, { passive: true });
+      });
+    });
+  </script>
+</body>
+</html>
