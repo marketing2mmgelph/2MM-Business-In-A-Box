@@ -4,7 +4,6 @@
     :root {
       --cream: #FFF8BD;
       --cream-mid: #faf3a0;
-      --cream-dark: #f0e878;
       --cyan: #0EC3E1;
       --cyan-dark: #0aa8c2;
       --dark: #0d2b30;
@@ -21,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* Glow top-right */
     body::after {
       content: '';
       position: fixed;
@@ -32,7 +30,6 @@
       z-index: 0;
     }
 
-    /* Dot pattern */
     .dot-pattern {
       position: fixed;
       bottom: 80px; right: 24px;
@@ -43,7 +40,6 @@
       z-index: 0;
     }
 
-    /* Confetti */
     #confetti {
       position: fixed; inset: 0;
       pointer-events: none;
@@ -59,9 +55,6 @@
       100% { opacity: 0; transform: translateY(108vh) rotate(540deg); }
     }
 
-    /* ════════════════════════════
-       MOBILE LAYOUT (default)
-    ════════════════════════════ */
     .page {
       position: relative;
       z-index: 1;
@@ -70,6 +63,7 @@
       flex-direction: column;
     }
 
+    /* ── HERO ── */
     .hero {
       padding: 64px 32px 52px;
       animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) both;
@@ -127,7 +121,7 @@
 
     .hero-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--mid);
       line-height: 1.75;
       font-weight: 300;
@@ -153,7 +147,7 @@
       border-radius: 100px;
     }
 
-    /* Sheet */
+    /* ── SHEET ── */
     .sheet {
       flex: 1;
       background: var(--white);
@@ -184,7 +178,7 @@
       margin-bottom: 14px;
     }
 
-    /* Resource card */
+    /* ── RESOURCE CARD ── */
     .resource-card {
       display: flex;
       align-items: center;
@@ -205,9 +199,7 @@
       border-color: var(--cyan);
       box-shadow: 0 6px 28px rgba(14,195,225,0.15);
     }
-    .resource-card:active {
-      transform: scale(0.975);
-    }
+    .resource-card:active { transform: scale(0.975); }
 
     .card-icon-wrap {
       width: 54px; height: 54px; min-width: 54px;
@@ -252,7 +244,6 @@
       color: var(--white);
     }
 
-    /* Ripple */
     .ripple {
       position: absolute; border-radius: 50%;
       background: rgba(14,195,225,0.15);
@@ -262,7 +253,7 @@
     }
     @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
 
-    /* Footer */
+    /* ── FOOTER ── */
     .footer {
       padding-top: 28px;
       border-top: 1px solid #eefafb;
@@ -272,7 +263,7 @@
     .footer-text {
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      font-size: 0.8rem;  /* ← add this line */
+      font-size: 0.8rem;
       color: var(--soft);
       line-height: 1.7;
       margin-bottom: 8px;
@@ -307,14 +298,14 @@
     }
     .contact-btn:active { transform: scale(0.97); }
 
-   .btn-dot {
-    width: 9px; height: 9px;
-    background: #FFF8BD;
-    border-radius: 50%;
-    flex-shrink: 0;
-    border: 1.5px solid rgba(255,255,255,0.6);
-    box-shadow: 0 0 6px rgba(255,248,189,0.8);
-   }
+    .btn-dot {
+      width: 9px; height: 9px;
+      background: #FFF8BD;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      box-shadow: 0 0 6px rgba(255,248,189,0.8);
+    }
 
     .brand-mark {
       margin-top: 6px;
@@ -325,11 +316,8 @@
       color: #0d2b30;
     }
 
-    /* ════════════════════════════
-       DESKTOP LAYOUT (≥ 768px)
-    ════════════════════════════ */
+    /* ── DESKTOP ── */
     @media (min-width: 768px) {
-
       body {
         display: flex;
         align-items: center;
@@ -337,7 +325,6 @@
         min-height: 100vh;
         padding: 40px 24px;
       }
-
       .page {
         flex-direction: row;
         align-items: stretch;
@@ -348,8 +335,6 @@
         overflow: hidden;
         box-shadow: 0 24px 80px rgba(14,195,225,0.14), 0 4px 24px rgba(13,43,48,0.10);
       }
-
-      /* Left = hero */
       .hero {
         flex: 1;
         padding: 60px 48px;
@@ -357,13 +342,10 @@
         flex-direction: column;
         justify-content: center;
         background: var(--cream);
-        animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) both;
       }
-
       .headline-serif { font-size: 3.4rem; }
       .headline-italic { font-size: 3.4rem; }
       .hero-sub { max-width: 340px; font-size: 1.1rem; }
-
       .sheet {
         flex: 0 0 380px;
         border-radius: 0;
@@ -379,18 +361,10 @@
         from { opacity: 0; transform: translateX(28px); }
         to   { opacity: 1; transform: translateX(0); }
       }
-
       .handle { display: none; }
-
       .resource-card { margin-bottom: 36px; }
-
       .contact-btn { width: 100%; }
-
-      
-      .dot-pattern {
-        bottom: 40px; right: 40px;
-        width: 100px; height: 100px;
-      }
+      .dot-pattern { bottom: 40px; right: 40px; width: 100px; height: 100px; }
     }
 
     @media (min-width: 1024px) {
@@ -399,4 +373,3 @@
       .headline-serif { font-size: 3.8rem; }
       .headline-italic { font-size: 3.8rem; }
     }
-
