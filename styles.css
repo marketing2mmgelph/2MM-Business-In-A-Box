@@ -103,8 +103,8 @@
     }
     .headline-italic {
       font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
-      font-weight: 300;
+      font-size: 2rem;
+      font-weight: 400;
       font-style: italic;
       color: var(--cyan);
       line-height: 1.05;
